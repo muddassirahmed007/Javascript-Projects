@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital-Clock</title>
+
+    <style type="text/css">
+        body{
+            background-image: 
+    url(https://i.pinimg.com/originals/b0/29/10/b02910cd818217300dc292bd6bb51041.jpg);
+            background-repeat: no-repeat;
+            background-size:99.9%;
+            margin:0%;
+            padding:0%;
+        
+        }
+        .clock{
+            color:#fff;
+            font-weight:bold;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) ;
+            font-size:60px; font-style: italic; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-shadow: 5px 5px rgb(129, 4, 4);
+            border:10px double rgb(255, 255, 255); border-radius: 10px;
+            padding:15px;
+        
+        }
+
+        .GMT{
+        margin-top: 240px;
+             font-size: 20px; font-weight: lighter;  font-family: Georgia, 'Times New Roman', Times, serif;
+            color: antiquewhite; text-align: center; align-items: center; 
+        }
+        </style>
+
+</head>
+
+<body>
+ <div class="clock">
+    <span id="hours">00</span>
+    <span>:</span>
+    <span id="minutes">00</span>
+    <span>:</span>
+    <span id="seconds">00</span>
+    <span id="sessions">AM</span>
+
+</div>
+
+
+<div class="GMT">
+    Today <br>
+    New-Delhi +5:30 GMT
+
+</div>
+    <script>
+function displayTime(){
+        var dateTime=new Date();
+        var hrs=dateTime.getHours();
+        var  min=dateTime.getMinutes();
+        var sec=dateTime.getSeconds();
+        var sessions=document.getElementById('sessions');
+        if(hrs >= 12){
+            sessions.innerHTML='PM';
+        }
+        else{
+            sessions.innerHTML='AM'; 
+        }
+        if(hrs>12){
+            hrs=hrs-12;
+        }
+      document.getElementById('hours').innerHTML=hrs;
+      document.getElementById('minutes').innerHTML=min;
+      document.getElementById('seconds').innerHTML=sec;
+    }
+    
+    setInterval(displayTime,10);
+
+    </script>
+
+
+
+</body>
+
+</html>
